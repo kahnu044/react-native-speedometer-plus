@@ -131,7 +131,7 @@ class SpeedometerPlus extends Component {
           left: (((currentSize * 0.9) / 9) * 2) - 4.5,
           position: "absolute",
           backgroundColor: "#FFFFFF",
-          opacity: 0.5,
+          // opacity: 0.5,
           width: (((currentSize * 0.9) / 9) * 6) + 10,
           height: (((currentSize * 0.9) / 9) * 6) + 10,
           borderRadius: 100,

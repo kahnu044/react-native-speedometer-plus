@@ -14,11 +14,8 @@ import Speedometer from './react-native-speedometer-plus/src';
 
 const App = () => {
   return (
-    <SafeAreaView>
-      <Text>Hello, World!</Text>
-      <ColoredText textColor="red">This text hhh is red!</ColoredText>
-
-      <View style={{flexDirection: 'row', gap: 10, justifyContent: 'center'}}>
+    <SafeAreaView style={styles.safeArea}>
+      <View style={styles.container}>
         <Speedometer
           value={65}
           size={240}
@@ -28,59 +25,43 @@ const App = () => {
           labels={[
             {
               name: 'BPM',
-              labelColor: '#CBDFE5',
-              activeBarColor: '#CBDFE5',
+              labelColor: '#cadee4',
+              activeBarColor: '#cadee4',
             },
             {
               name: 'Very weak',
-              labelColor: '#22C65F',
-              activeBarColor: '#22C65F',
+              labelColor: '#40d371',
+              activeBarColor: '#40d371',
             },
             {
               name: 'So-so',
-              labelColor: '#FBDE42',
-              activeBarColor: '#FBDE42',
+              labelColor: '#fbde42',
+              activeBarColor: '#fbde42',
             },
           ]}
           innerCircleStyle={{
-            backgroundColor: '#E3ECFA',
+            backgroundColor: '#e0e9f7',
           }}
         />
-
-        {/* <Speedometer
-          value={80}
-          size={150}
-          // labelStyle={{ fontSize: 24 }}
-          // minValue={1}
-          // maxValue={6}
-          labels={[
-            {
-              name: 'Pathetically',
-              labelColor: '#CBDFE5',
-              activeBarColor: '#CBDFE5',
-              color: "red"
-            },
-            {
-              name: 'Very weak',
-              labelColor: '#22C65F',
-              activeBarColor: '#22C65F',
-            },
-            {
-              name: 'So-so',
-              labelColor: '#FBDE42',
-              activeBarColor: '#FBDE42',
-            },
-          ]}
-          innerCircleStyle={{
-            backgroundColor: '#E3ECFA',
-          }}
-          // labelStyle= {{
-          //   color: "blue"
-          // }}
-        /> */}
       </View>
     </SafeAreaView>
   );
 };
 
 export default App;
+
+const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  text: {
+    fontSize: 20,
+  },
+});
