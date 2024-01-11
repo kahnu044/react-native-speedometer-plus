@@ -46,6 +46,11 @@ export default StyleSheet.create({
     borderTopLeftRadius: width / 2 - 10,
     borderTopRightRadius: width / 2 - 10,
   },
+  innerCircle2: {
+    position: 'absolute',
+    zIndex: 10,
+    backgroundColor: 'gray',
+  },
   labelWrapper: {
     marginVertical: 5,
     alignItems: 'center',

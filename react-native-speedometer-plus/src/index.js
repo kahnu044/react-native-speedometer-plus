@@ -76,6 +76,7 @@ class SpeedometerPlus extends Component {
           borderTopRightRadius: currentSize / 2,
         }, outerCircleStyle]}
         >
+          {/* Coloring */}
           {labels.map((level, index) => {
             const circleDegree = 90 + (index * perLevelDegree);
             return (
@@ -99,7 +100,7 @@ class SpeedometerPlus extends Component {
           {/* NeedleIconImage */}
           <Animated.View style={[style.imageWrapper,
           {
-            top: -(currentSize / 15),
+            top: -(currentSize / 55),
             transform: [{ rotate }],
           },
             imageWrapperStyle]}
@@ -123,18 +124,24 @@ class SpeedometerPlus extends Component {
           }, innerCircleStyle]}
           />
 
+          {/* <View style={[style.innerCircle2, {
+            width: currentSize * 0.6,
+            height: (currentSize / 2) * 0.6,
+            borderTopLeftRadius: currentSize / 2,
+            borderTopRightRadius: currentSize / 2,
+          }]}
+          /> */}
         </View>
 
         {/* Inside circle 2 */}
         <View style={{
-          top: ((currentSize * 0.9) / 9) * 2,
-          left: (((currentSize * 0.9) / 9) * 2) - 4.5,
+          top: currentSize * 0.2,
           position: "absolute",
           backgroundColor: "#FFFFFF",
-          // opacity: 0.5,
-          width: (((currentSize * 0.9) / 9) * 6) + 10,
-          height: (((currentSize * 0.9) / 9) * 6) + 10,
-          borderRadius: 100,
+          left: (((currentSize * 0.9) / 9) * 2),
+          width: currentSize * 0.6,
+          height: currentSize * 0.6,
+          borderRadius: currentSize / 2,
           justifyContent: "center",
           alignItems: "center"
         }} >
@@ -196,7 +203,7 @@ SpeedometerPlus.defaultProps = {
       activeBarColor: '#00ff6b',
     },
   ],
-  needleImage: require('./images/line-needle.png'),
+  needleImage: require('./images/speedometer-needle-new.png'),
   wrapperStyle: {},
   outerCircleStyle: {},
   halfCircleStyle: {},
