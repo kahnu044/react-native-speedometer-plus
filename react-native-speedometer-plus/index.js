@@ -14,10 +14,10 @@ import { calculateDegreeFromLabels, calculateLabelFromValue, limitValue, validat
 // Style
 import style, { width as deviceWidth } from './src/style';
 
-class SpeedometerPlus extends Component {
+class SpeedoMeterPlus extends Component {
   constructor(props) {
     super(props);
-    this.SpeedometerPlusValue = new Animated.Value(props.defaultValue);
+    this.SpeedoMeterPlusValue = new Animated.Value(props.defaultValue);
   }
 
   render() {
@@ -36,6 +36,7 @@ class SpeedometerPlus extends Component {
       imageWrapperStyle,
       imageStyle,
       innerCircleStyle,
+      innerFullCircleStyle,
       labelWrapperStyle,
       labelStyle,
       labelNoteStyle,
@@ -47,7 +48,7 @@ class SpeedometerPlus extends Component {
       limitValue(value, minValue, maxValue, allowedDecimals), labels, minValue, maxValue,
     );
     Animated.timing(
-      this.SpeedometerPlusValue,
+      this.SpeedoMeterPlusValue,
       {
         toValue: limitValue(value, minValue, maxValue, allowedDecimals),
         duration: easeDuration,
@@ -56,7 +57,7 @@ class SpeedometerPlus extends Component {
       },
     ).start();
 
-    const rotate = this.SpeedometerPlusValue.interpolate({
+    const rotate = this.SpeedoMeterPlusValue.interpolate({
       inputRange: [minValue, maxValue],
       outputRange: ['-90deg', '90deg'],
     });
@@ -115,36 +116,24 @@ class SpeedometerPlus extends Component {
             />
           </Animated.View>
 
-          {/* Inner Circle */}
-          <View style={[style.innerCircle, {
+          {/* innerHalfCircle */}
+          <View style={[style.innerHalfCircle, {
             width: currentSize * 0.9,
             height: (currentSize / 2) * 0.9,
             borderTopLeftRadius: currentSize / 2,
             borderTopRightRadius: currentSize / 2,
           }, innerCircleStyle]}
           />
-
-          {/* <View style={[style.innerCircle2, {
-            width: currentSize * 0.6,
-            height: (currentSize / 2) * 0.6,
-            borderTopLeftRadius: currentSize / 2,
-            borderTopRightRadius: currentSize / 2,
-          }]}
-          /> */}
         </View>
 
-        {/* Inside circle 2 */}
-        <View style={{
+        {/* innerFullCircle */}
+        <View style={[style.innerFullCircle, {
           top: currentSize * 0.2,
-          position: "absolute",
-          backgroundColor: "#FFFFFF",
           left: (((currentSize * 0.9) / 9) * 2),
           width: currentSize * 0.6,
           height: currentSize * 0.6,
           borderRadius: currentSize / 2,
-          justifyContent: "center",
-          alignItems: "center"
-        }} >
+        }, innerFullCircleStyle]} >
 
           <View style={[style.labelWrapper, labelWrapperStyle]}>
             <Text style={
@@ -165,7 +154,7 @@ class SpeedometerPlus extends Component {
   }
 }
 
-SpeedometerPlus.defaultProps = {
+SpeedoMeterPlus.defaultProps = {
   defaultValue: 50,
   minValue: 0,
   maxValue: 100,
@@ -210,13 +199,14 @@ SpeedometerPlus.defaultProps = {
   imageWrapperStyle: {},
   imageStyle: {},
   innerCircleStyle: {},
+  innerFullCircleStyle: {},
   labelWrapperStyle: {},
   labelStyle: {},
   labelNoteStyle: {},
   useNativeDriver: true,
 };
 
-SpeedometerPlus.propTypes = {
+SpeedoMeterPlus.propTypes = {
   value: PropTypes.number.isRequired,
   defaultValue: PropTypes.number,
   size: PropTypes.number,
@@ -232,10 +222,11 @@ SpeedometerPlus.propTypes = {
   imageWrapperStyle: PropTypes.object,
   imageStyle: PropTypes.object,
   innerCircleStyle: PropTypes.object,
+  innerFullCircleStyle: PropTypes.object,
   labelWrapperStyle: PropTypes.object,
   labelStyle: PropTypes.object,
   labelNoteStyle: PropTypes.object,
   useNativeDriver: PropTypes.bool,
 };
 
-export default SpeedometerPlus;
+export { SpeedoMeterPlus };

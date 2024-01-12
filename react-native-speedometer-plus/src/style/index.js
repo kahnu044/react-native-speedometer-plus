@@ -36,7 +36,7 @@ export default StyleSheet.create({
     height: width - 10,
     width: width - 20,
   },
-  innerCircle: {
+  innerHalfCircle: {
     overflow: 'hidden',
     justifyContent: 'flex-end',
     alignItems: 'center',
@@ -46,10 +46,12 @@ export default StyleSheet.create({
     borderTopLeftRadius: width / 2 - 10,
     borderTopRightRadius: width / 2 - 10,
   },
-  innerCircle2: {
+  innerFullCircle: {
     position: 'absolute',
+    backgroundColor: "#FFFFFF",
     zIndex: 10,
-    backgroundColor: 'gray',
+    justifyContent: "center",
+    alignItems: "center"
   },
   labelWrapper: {
     marginVertical: 5,
