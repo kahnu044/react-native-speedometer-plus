@@ -1,0 +1,34 @@
+{
+  "name": "react-native-speedometer-plus",
+  "version": "1.0.1",
+  "description": "Use to show speedometer in your react native app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-native": "^0.63.4",
+    "prop-types": "^15.7.2"
+  },
+  "peerDependencies": {
+    "react": "^16.13.1",
+    "react-native": "^0.63.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kahnu044/react-native-speedometer-plus.git"
+  },
+  "keywords": [
+    "react-native-speedometer",
+    "react-native-speedometer-plus",
+    "react-native-speedometer-view",
+    "rn-speedometer"
+  ],
+  "author": "kahnu044",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kahnu044/react-native-speedometer-plus/issues"
+  },
+  "homepage": "https://github.com/kahnu044/react-native-speedometer-plus#readme"
+}
