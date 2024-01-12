@@ -202,7 +202,7 @@ SpeedoMeterPlus.defaultProps = {
       activeBarColor: '#00ff6b',
     },
   ],
-  needleImage: require('./src/images/speedometer-needle-new.png'),
+  needleImage: require('./src/images/arrow-needle.png'),
   wrapperStyle: {},
   outerCircleStyle: {},
   halfCircleStyle: {},

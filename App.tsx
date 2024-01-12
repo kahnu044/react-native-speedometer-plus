@@ -103,7 +103,7 @@ const App = () => {
             <Text style={{color: '#000B20'}}>Heart Rate Variability</Text>
 
             <Image
-              source={require('./react-native-speedometer-plus/src/images/Heart.png')}
+              source={require('./assets/Heart.png')}
               style={styles.image}
             />
           </View>
