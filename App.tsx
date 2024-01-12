@@ -10,7 +10,7 @@ import React from 'react';
 
 import ColoredText from 'react-native-colored-text';
 
-import { SpeedoMeterPlus } from './react-native-speedometer-plus';
+import {SpeedoMeterPlus} from './react-native-speedometer-plus';
 
 import HeartIcon from './react-native-speedometer-plus/src/images/heart-icon.png';
 
@@ -43,18 +43,18 @@ const App = () => {
     };
 
     //pushing colors to breathing============
-    GraphData.vitals.breathing.push({
-      name: '',
-      labelColor: '#fff567',
-      activeBarColor: '#fff567',
-    });
-    for (let i = 1; i <= 5; i++) {
-      GraphData.vitals.breathing.push({
-        name: '',
-        labelColor: '#9efb59',
-        activeBarColor: '#9efb59',
-      });
-    }
+    // GraphData.vitals.breathing.push({
+    //   name: '',
+    //   labelColor: '#fff567',
+    //   activeBarColor: '#fff567',
+    // });
+    // for (let i = 1; i <= 5; i++) {
+    //   GraphData.vitals.breathing.push({
+    //     name: '',
+    //     labelColor: '#9efb59',
+    //     activeBarColor: '#9efb59',
+    //   });
+    // }
     for (let i = 1; i <= 1; i++) {
       GraphData.vitals.breathing.push({
         name: '',
@@ -65,6 +65,24 @@ const App = () => {
 
     return GraphData.vitals.breathing;
   };
+
+  const testData = [
+    {
+      name: 'Test1',
+      labelColor: 'blue',
+      activeBarColor: 'blue',
+    },
+    {
+      name: 'Test2',
+      labelColor: '#fff590',
+      activeBarColor: '#fff590',
+    },
+    {
+      name: 'Test3',
+      labelColor: '#ff7590',
+      activeBarColor: '#ff7590',
+    },
+  ];
 
   return (
     <SafeAreaView style={styles.safeArea}>
@@ -91,10 +109,10 @@ const App = () => {
           </View>
 
           <SpeedoMeterPlus
-            value={14.7}
+            value={82}
             size={190}
             minValue={6}
-            maxValue={46}
+            maxValue={100}
             allowedDecimals={1}
             labelStyle={{fontSize: 20}}
             wrapperStyle={{
@@ -103,13 +121,21 @@ const App = () => {
             // labelStyle={{ fontSize: 24 }}
             // minValue={1}
             // maxValue={6}
-            labels={getBreathingValue()}
+            labels={testData}
             innerCircleStyle={{
               backgroundColor: '#e0e9f7',
             }}
             // innerFullCircleStyle={{
-            //   backgroundColor: '#e0e9f7',
+            //   backgroundColor: 'green',
             // }}
+            showInnerLabelNote={false}
+            // innerLabelNoteValue="IDX"
+            innerLabelNoteStyle={{
+              color: "black",
+              // fontSize: 23
+            }}
+            // innerFullCircleValuePrefix="Y"
+            // innerFullCircleValueSuffix="%"
           />
         </View>
       </View>
