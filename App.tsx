@@ -10,7 +10,10 @@ import React from 'react';
 
 import ColoredText from 'react-native-colored-text';
 
-import {SpeedoMeterPlus} from './react-native-speedometer-plus';
+// import {SpeedoMeterPlus} from './react-native-speedometer-plus';
+import { SpeedoMeterPlus } from 'react-native-speedometer-plus';
+
+// npm i react-native-speedometer-plus
 
 import HeartIcon from './react-native-speedometer-plus/src/images/heart-icon.png';
 
@@ -109,8 +112,8 @@ const App = () => {
           </View>
 
           <SpeedoMeterPlus
-            value={82}
-            size={190}
+            value={12}
+            size={250}
             minValue={6}
             maxValue={100}
             allowedDecimals={1}
@@ -125,17 +128,17 @@ const App = () => {
             innerCircleStyle={{
               backgroundColor: '#e0e9f7',
             }}
-            // innerFullCircleStyle={{
-            //   backgroundColor: 'green',
-            // }}
+            innerFullCircleStyle={{
+              backgroundColor: 'green',
+            }}
             showInnerLabelNote={false}
-            // innerLabelNoteValue="IDX"
+            innerLabelNoteValue="IDX"
             innerLabelNoteStyle={{
               color: "black",
-              // fontSize: 23
+              fontSize: 23
             }}
-            // innerFullCircleValuePrefix="Y"
-            // innerFullCircleValueSuffix="%"
+            innerFullCircleValuePrefix="Y"
+            innerFullCircleValueSuffix="%"
           />
         </View>
       </View>

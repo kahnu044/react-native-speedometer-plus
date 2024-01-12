@@ -9,10 +9,10 @@ import {
 import PropTypes from 'prop-types';
 
 // Utils
-import { calculateDegreeFromLabels, calculateLabelFromValue, limitValue, validateSize } from './src/utils';
+import { calculateDegreeFromLabels, calculateLabelFromValue, limitValue, validateSize } from './utils';
 
 // Style
-import style, { width as deviceWidth } from './src/style';
+import style, { width as deviceWidth } from './style';
 
 class SpeedoMeterPlus extends Component {
   constructor(props) {
@@ -202,7 +202,7 @@ SpeedoMeterPlus.defaultProps = {
       activeBarColor: '#00ff6b',
     },
   ],
-  needleImage: require('./src/images/arrow-needle.png'),
+  needleImage: require('./images/arrow-needle.png'),
   wrapperStyle: {},
   outerCircleStyle: {},
   halfCircleStyle: {},
