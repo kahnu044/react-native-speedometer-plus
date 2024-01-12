@@ -9,10 +9,10 @@ import {
 import PropTypes from 'prop-types';
 
 // Utils
-import { calculateDegreeFromLabels, calculateLabelFromValue, limitValue, validateSize } from './utils';
+import { calculateDegreeFromLabels, calculateLabelFromValue, limitValue, validateSize } from './src/utils';
 
 // Style
-import style, { width as deviceWidth } from './style';
+import style, { width as deviceWidth } from './src/style';
 
 class SpeedometerPlus extends Component {
   constructor(props) {
@@ -81,7 +81,7 @@ class SpeedometerPlus extends Component {
             const circleDegree = 90 + (index * perLevelDegree);
             return (
               <View
-                key={level.name}
+                key={index}
                 style={[style.halfCircle, {
                   backgroundColor: level.activeBarColor,
                   width: currentSize / 2,
@@ -203,7 +203,7 @@ SpeedometerPlus.defaultProps = {
       activeBarColor: '#00ff6b',
     },
   ],
-  needleImage: require('./images/speedometer-needle-new.png'),
+  needleImage: require('./src/images/speedometer-needle-new.png'),
   wrapperStyle: {},
   outerCircleStyle: {},
   halfCircleStyle: {},
