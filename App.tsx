@@ -10,11 +10,62 @@ import React from 'react';
 
 import ColoredText from 'react-native-colored-text';
 
-import Speedometer from './react-native-speedometer-plus/src';
+import SpeedometerPlus from './react-native-speedometer-plus';
 
-import HeartIcon from './assets/HeartIcon';
+import HeartIcon from './react-native-speedometer-plus/src/images/heart-icon.png';
 
 const App = () => {
+  const getBreathingValue = () => {
+    const GraphData = {
+      vitals: {
+        heartRate: [],
+        breathing: [],
+        systolic: [],
+        diastolic: [],
+      },
+      physiological: {
+        heartRateVariability: [],
+        cardiacWorkLoad: [],
+      },
+      mental: {
+        mental: [],
+      },
+      physical: {
+        bodyMassIndex: [],
+        waistHeight: [],
+        bodyShape: [],
+      },
+      risks: {
+        cvdRisk: [],
+        heartAttack: [],
+        riskStroke: [],
+      },
+    };
+
+    //pushing colors to breathing============
+    GraphData.vitals.breathing.push({
+      name: '',
+      labelColor: '#fff567',
+      activeBarColor: '#fff567',
+    });
+    for (let i = 1; i <= 5; i++) {
+      GraphData.vitals.breathing.push({
+        name: '',
+        labelColor: '#9efb59',
+        activeBarColor: '#9efb59',
+      });
+    }
+    for (let i = 1; i <= 1; i++) {
+      GraphData.vitals.breathing.push({
+        name: '',
+        labelColor: '#fff567',
+        activeBarColor: '#fff567',
+      });
+    }
+
+    return GraphData.vitals.breathing;
+  };
+
   return (
     <SafeAreaView style={styles.safeArea}>
       <View style={styles.container}>
@@ -39,33 +90,20 @@ const App = () => {
             />
           </View>
 
-          <Speedometer
-            value={56}
-            size={230}
+          <SpeedometerPlus
+            value={14.7}
+            size={190}
+            minValue={6}
+            maxValue={46}
+            allowedDecimals={1}
+            labelStyle={{fontSize: 20}}
             wrapperStyle={{
               marginBottom: 70,
             }}
             // labelStyle={{ fontSize: 24 }}
             // minValue={1}
             // maxValue={6}
-            labels={[
-              {
-                name: 'BPM',
-                labelColor: '#EC635F',
-                activeBarColor: '#EC635F',
-              },
-
-              {
-                name: 'So-so',
-                labelColor: '#fbde42',
-                activeBarColor: '#fbde42',
-              },
-              {
-                name: 'MS',
-                labelColor: '#40d371',
-                activeBarColor: '#40d371',
-              },
-            ]}
+            labels={getBreathingValue()}
             innerCircleStyle={{
               backgroundColor: '#e0e9f7',
             }}
