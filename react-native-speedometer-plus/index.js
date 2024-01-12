@@ -37,6 +37,13 @@ class SpeedoMeterPlus extends Component {
       imageStyle,
       innerCircleStyle,
       innerFullCircleStyle,
+      innerFullCircleLabelWrapperStyle,
+      innerFullCircleValueStyle,
+      innerFullCircleValuePrefix,
+      innerFullCircleValueSuffix,
+      showInnerLabelNote,
+      innerLabelNoteValue,
+      innerLabelNoteStyle,
       labelWrapperStyle,
       labelStyle,
       labelNoteStyle,
@@ -135,20 +142,23 @@ class SpeedoMeterPlus extends Component {
           borderRadius: currentSize / 2,
         }, innerFullCircleStyle]} >
 
-          <View style={[style.labelWrapper, labelWrapperStyle]}>
+          <View style={[style.innerFullCircleLabelWrapper, innerFullCircleLabelWrapperStyle]}>
             <Text style={
-              [style.label, labelStyle, { color: label.labelColor }]}
+              [style.innerLabelValue, { color: label.labelColor }, innerFullCircleValueStyle]}
             >
-              {limitValue(value, minValue, maxValue, allowedDecimals)}
+              {`${innerFullCircleValuePrefix}${limitValue(value, minValue, maxValue, allowedDecimals)}${innerFullCircleValueSuffix}`}
             </Text>
-            <Text style={
-              [style.labelNote, labelNoteStyle]}
-            >
-              {label.name}
-            </Text>
+
+            {showInnerLabelNote && (label.name || innerLabelNoteValue) && (
+              <Text style={
+                [style.innerLabelNote, { color: label.labelColor }, innerLabelNoteStyle]}
+              >
+                {innerLabelNoteValue ? innerLabelNoteValue : label.name}
+              </Text>
+            )}
+
           </View>
         </View>
-
       </View>
     );
   }
@@ -201,6 +211,13 @@ SpeedoMeterPlus.defaultProps = {
   innerCircleStyle: {},
   innerFullCircleStyle: {},
   labelWrapperStyle: {},
+  innerFullCircleLabelWrapperStyle: {},
+  innerFullCircleValueStyle: {},
+  innerFullCircleValuePrefix: "",
+  innerFullCircleValueSuffix: "",
+  showInnerLabelNote: true,
+  innerLabelNoteValue: "",
+  innerLabelNoteStyle: {},
   labelStyle: {},
   labelNoteStyle: {},
   useNativeDriver: true,
@@ -223,6 +240,13 @@ SpeedoMeterPlus.propTypes = {
   imageStyle: PropTypes.object,
   innerCircleStyle: PropTypes.object,
   innerFullCircleStyle: PropTypes.object,
+  innerFullCircleLabelWrapperStyle: PropTypes.object,
+  innerFullCircleValueStyle: PropTypes.object,
+  innerFullCircleValuePrefix: PropTypes.string,
+  innerFullCircleValueSuffix: PropTypes.string,
+  showInnerLabelNote: PropTypes.bool,
+  innerLabelNoteValue: PropTypes.string,
+  innerLabelNoteStyle: PropTypes.object,
   labelWrapperStyle: PropTypes.object,
   labelStyle: PropTypes.object,
   labelNoteStyle: PropTypes.object,
