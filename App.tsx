@@ -10,8 +10,8 @@ import React from 'react';
 
 import ColoredText from 'react-native-colored-text';
 
-// import {SpeedoMeterPlus} from './react-native-speedometer-plus';
-import { SpeedoMeterPlus } from 'react-native-speedometer-plus';
+import {SpeedoMeterPlus} from './react-native-speedometer-plus';
+// import { SpeedoMeterPlus } from 'react-native-speedometer-plus';
 
 // npm i react-native-speedometer-plus
 
