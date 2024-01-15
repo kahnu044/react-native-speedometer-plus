@@ -74,7 +74,7 @@ class SpeedoMeterPlus extends Component {
     return (
       <View style={[style.wrapper, {
         width: currentSize,
-        height: currentSize / 2,
+        height: currentSize / 1.15,
       }, wrapperStyle]}
       >
         <View style={[style.outerCircle, {
