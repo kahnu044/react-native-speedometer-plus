@@ -48,6 +48,7 @@ class SpeedoMeterPlus extends Component {
       labelStyle,
       labelNoteStyle,
       useNativeDriver,
+      title
     } = this.props;
     const degree = 180;
     const perLevelDegree = calculateDegreeFromLabels(degree, labels);
@@ -77,6 +78,36 @@ class SpeedoMeterPlus extends Component {
         height: currentSize / 1.15,
       }, wrapperStyle]}
       >
+        {labels.map((level, index) => {
+          const circleDegree = title === "breathing" ? -45 + (index * perLevelDegree) : title === "heart rate variability" ? -27 + (index * perLevelDegree) : title === "cardiac workload" ? -27 + (index * perLevelDegree) : title === "cardiovascular" ? -35 + (index * perLevelDegree) : title === "wellness score" ? -20 + (index * perLevelDegree) : -25 + (index * perLevelDegree);
+          return (
+            <View
+              key={index}
+              style={[style.halfCircle, {
+                width: currentSize / 2,
+                height: currentSize,
+                backgroundColor: 'transparent',
+                borderRadius: currentSize / 2,
+                transform: [
+                  { translateX: currentSize / 4 },
+                  { rotate: `${circleDegree}deg` },
+                  { translateX: (currentSize / 4 * -1) },
+                ],
+              }, halfCircleStyle]}
+            >
+              <Text style={{
+                color: "gray",
+                fontWeight: 600,
+                fontSize: ['body mass', 'heart attack risk', 'stroke risk'].includes(title) ? 8 : 10,
+                top: title === title === "cardiovascular" ? 10 : title === "wellness score" ? 20 : 0,
+                left: title === title === "body mass" ? 5 : title === "cardiovascular" ? 20 : 0,
+                transform: [{ translateX: -currentSize / 5 }, { rotate: `${-circleDegree}deg` }, { translateX: (-currentSize / 4.5 * -1) },],
+              }}>{level?.value}</Text>
+            </View>
+          );
+        })
+        }
+
         <View style={[style.outerCircle, {
           width: currentSize,
           height: currentSize / 2,
@@ -101,7 +132,8 @@ class SpeedoMeterPlus extends Component {
                     { translateX: (currentSize / 4 * -1) },
                   ],
                 }, halfCircleStyle]}
-              />
+              >
+              </View>
             );
           })}
 
@@ -159,7 +191,7 @@ class SpeedoMeterPlus extends Component {
 
           </View>
         </View>
-      </View>
+      </View >
     );
   }
 }
