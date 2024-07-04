@@ -79,7 +79,7 @@ class SpeedoMeterPlus extends Component {
       }, wrapperStyle]}
       >
         {labels.map((level, index) => {
-          const circleDegree = title === "breathing" ? -45 + (index * perLevelDegree) : title === "heart rate variability" ? -27 + (index * perLevelDegree) : title === "cardiac workload" ? -27 + (index * perLevelDegree) : title === "cardiovascular" ? -35 + (index * perLevelDegree) : title === "wellness score" ? -20 + (index * perLevelDegree) : -25 + (index * perLevelDegree);
+          const circleDegree = title === "breathing" ? -45 + (index * perLevelDegree) : title === "heart rate variability" ? -27 + (index * perLevelDegree) : title === "cardiac workload" ? -27 + (index * perLevelDegree) : title === "cardiovascular" ? -30 + (index * perLevelDegree) : title === "wellness score" ? -20 + (index * perLevelDegree) : title === "metabolic" ? -36 + (index * perLevelDegree) : title === "blood" ? -30 + (index * perLevelDegree) : title === "body mass" ? -29+ (index * perLevelDegree) : -25 + (index * perLevelDegree);
           return (
             <View
               key={index}
@@ -98,9 +98,9 @@ class SpeedoMeterPlus extends Component {
               <Text style={{
                 color: "gray",
                 fontWeight: 600,
-                fontSize: ['body mass', 'heart attack risk', 'stroke risk'].includes(title) ? 8 : 10,
-                top: title === title === "cardiovascular" ? 10 : title === "wellness score" ? 20 : 0,
-                left: title === title === "body mass" ? 5 : title === "cardiovascular" ? 20 : 0,
+                fontSize: ['body mass', 'heart attack risk', 'stroke risk', 'metabolic'].includes(title) ? 8 : 10,
+                top: title === "cardiovascular" ? 10 : title === "wellness score" ? 20 : title === "blood" ? 20 : 0,
+                left: title === "body mass" ? 5 : title === "cardiovascular" ? 20 : 0,
                 transform: [{ translateX: -currentSize / 5 }, { rotate: `${-circleDegree}deg` }, { translateX: (-currentSize / 4.5 * -1) },],
               }}>{level?.value}</Text>
             </View>
